@@ -1,0 +1,2 @@
+# konsolerc
+My Konsole configs
