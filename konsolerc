@@ -1,0 +1,16 @@
+[Desktop Entry]
+DefaultProfile=dark.profile
+
+[Favorite Profiles]
+Favorites=dark.profile,light.profile
+
+[KonsoleWindow]
+ShowMenuBarByDefault=false
+
+[MainWindow]
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAABDYAAAO4AAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
+
+[TabBar]
+TabBarVisibility=ShowTabBarWhenNeeded
