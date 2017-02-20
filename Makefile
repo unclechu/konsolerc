@@ -1,8 +1,6 @@
 all: create-symlinks
 clean: remove-symlinks
 
-DIR := `pwd`
-
 create-symlinks: remove-symlinks
 	(cd ~/.config/ && ln -s "$(PWD)/konsolerc")
 	mkdir -p ~/.local/share/konsole/
