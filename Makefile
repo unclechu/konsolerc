@@ -2,14 +2,14 @@ all: create-symlinks
 clean: remove-symlinks
 
 create-symlinks: remove-symlinks
-	(cd ~/.config/ && ln -s "$(PWD)/konsolerc")
+	(cd ~/.config/ && ln -s "$(shell pwd)/konsolerc")
 	mkdir -p ~/.local/share/konsole/
-	(cd ~/.local/share/konsole/ && ln -s "$(PWD)/konsole/dark.profile")
-	(cd ~/.local/share/konsole/ && ln -s "$(PWD)/konsole/light.profile")
+	(cd ~/.local/share/konsole/ && ln -s "$(shell pwd)/konsole/dark.profile")
+	(cd ~/.local/share/konsole/ && ln -s "$(shell pwd)/konsole/light.profile")
 	(cd ~/.local/share/konsole/ && \
-		ln -s "$(PWD)/konsole/my dark theme.colorscheme")
+		ln -s "$(shell pwd)/konsole/my dark theme.colorscheme")
 	(cd ~/.local/share/konsole/ && \
-		ln -s "$(PWD)/konsole/my light theme.colorscheme")
+		ln -s "$(shell pwd)/konsole/my light theme.colorscheme")
 
 remove-symlinks:
 	(cd ~/.config/ && \
