@@ -1,11 +1,13 @@
 #!/usr/bin/env perl
 use v5.10; use strict; use warnings; use autodie qw(:all);
 die 'unexpected arguments count' if scalar(@ARGV) != 1;
-use Env qw<PWD HOME>;
+use Env qw<HOME>;
+use Cwd qw(abs_path);
 use IPC::System::Simple qw<runx capturex>;
 
 my $config_dir;
 my $profiles_dir;
+my $__dirname = abs_path './';
 
 if (capturex(qw<uname -o>) =~ /FreeBSD/) {
   $config_dir = "$HOME/.kde4/share/config/";
@@ -18,11 +20,11 @@ if (capturex(qw<uname -o>) =~ /FreeBSD/) {
 if ($ARGV[0] eq 'create-symlinks') {
 
   chdir $config_dir;
-  runx 'ln', '-s', '--', "$PWD/konsolerc";
+  runx 'ln', '-s', '--', "$__dirname/konsolerc";
 
   runx 'mkdir', '-p', '--', $profiles_dir;
   chdir $profiles_dir;
-  my $lnk = sub {runx 'ln', '-s', '--', "$PWD/konsole/$_[0]"};
+  my $lnk = sub {runx 'ln', '-s', '--', "$__dirname/konsole/$_[0]"};
   &$lnk('dark.profile');
   &$lnk('light.profile');
   &$lnk('my dark theme.colorscheme');
